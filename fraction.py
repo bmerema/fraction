@@ -9,3 +9,8 @@ class Fraction:
 
     def __str__(self):
         return str(self.numerator) + "/" + str(self.denominator)
+
+    def adding(self, fraction:"Fraction"):
+        nominator = self.numerator * fraction.denominator + fraction.numerator* self.denominator
+        denominator = self.denominator * fraction.denominator
+        return Fraction(nominator, denominator)
