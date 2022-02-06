@@ -10,7 +10,10 @@ class Fraction:
     def __str__(self):
         return str(self.numerator) + "/" + str(self.denominator)
 
-    def adding(self, fraction:"Fraction"):
-        nominator = self.numerator * fraction.denominator + fraction.numerator* self.denominator
-        denominator = self.denominator * fraction.denominator
-        return Fraction(nominator, denominator)
+    def __add__(self, rhsValue):
+        num = self.numerator * rhsValue.denominator + rhsValue.numerator* self.denominator
+        den = self.denominator * rhsValue.denominator
+        return Fraction(num, den)
+
+    def __eq__(self, rhsValue):
+        return(self._numerator == rhsValue.numerator and self._denominator == rhsValue.denominator)
