@@ -3,7 +3,7 @@ import math
 class Fraction:
 
 
-    def __init__(self, numerator, denominator):
+    def __init__(self, numerator=0, denominator=1):
         if denominator == 0:
             raise ZeroDivisionError("Denominator cant be zero")
         if numerator == 0:
@@ -15,17 +15,17 @@ class Fraction:
                 sign = -1
             else:
                 sign = 1
-
         self._numerator = abs(numerator)
         self._denominator = abs(denominator)
 
-    def __str__(self):
-        return str(self.numerator) + "/" + str(self.denominator)
+    def __repr__(self):
+        return str(self._numerator) + "/" + str(self._denominator)
 
     def __add__(self, rhsValue):
-        num = self.numerator * rhsValue.denominator + rhsValue.numerator* self.denominator
-        den = self.denominator * rhsValue.denominator
+        num = self._numerator * rhsValue._denominator + rhsValue._numerator* self._denominator
+        den = self._denominator * rhsValue._denominator
         return Fraction(num, den)
 
     def __eq__(self, rhsValue):
-        return(self._numerator == rhsValue.numerator and self._denominator == rhsValue.denominator)
+        return(self._numerator == rhsValue._numerator
+               and self._denominator == rhsValue._denominator)
